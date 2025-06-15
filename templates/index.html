@@ -1,0 +1,39 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QCM Embedding Économie</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+
+</head>
+<body>
+    <h1>QCM Embedding Économie</h1>
+    <form action="/" method="post">
+        <label for="question">Question :</label><br>
+        <input type="text" name="question" required><br><br>
+
+        <label for="option_1">Option 1 :</label><br>
+        <input type="text" name="option_1" required><br>
+
+        <label for="option_2">Option 2 :</label><br>
+        <input type="text" name="option_2" required><br>
+
+        <label for="option_3">Option 3 :</label><br>
+        <input type="text" name="option_3" required><br>
+
+        <label for="option_4">Option 4 :</label><br>
+        <input type="text" name="option_4" required><br><br>
+
+        <button type="submit">Envoyer</button>
+    </form>
+
+    {% if best_option %}
+        <h2>Résultat :</h2>
+        <p><strong>Meilleure option :</strong> {{ best_option }}</p>
+        <p><strong>Score :</strong> {{ best_score }}</p>
+    {% endif %}
+</body>
+</html>
